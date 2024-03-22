@@ -12,6 +12,8 @@ import Home from './components/Home';
 import AppliedJobs from './AppliedJobs';
 import ErrorPages from './components/ErrorPages';
 
+import JobDetail from './JobDetail';
+
 
 const router = createBrowserRouter([
   {
@@ -26,10 +28,19 @@ const router = createBrowserRouter([
      {
       path: '/applied',
       element: <AppliedJobs></AppliedJobs>
+     },
+     {
+      path:'/job/:id',
+      element:<JobDetail></JobDetail>,
+      loader:() => fetch('../jobs.json')
+       
      }
+
+
     ]
   },
 ]);
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -37,3 +48,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </React.StrictMode>,
 )
+

@@ -9,15 +9,23 @@ import {
 import Root from './components/Root';
 import Home from './components/Home';
 
+import AppliedJobs from './AppliedJobs';
+import ErrorPages from './components/ErrorPages';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPages></ErrorPages>,
     children: [
      {
       path: '/',
       element:<Home></Home>
+     },
+     {
+      path: '/applied',
+      element: <AppliedJobs></AppliedJobs>
      }
     ]
   },
